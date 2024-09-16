@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/portfolio-maryam/static/css/main.0760ddad.css",
+    "main.js": "/portfolio-maryam/static/js/main.4eae570b.js",
+    "static/js/453.afec77df.chunk.js": "/portfolio-maryam/static/js/453.afec77df.chunk.js",
+    "index.html": "/portfolio-maryam/index.html",
+    "main.0760ddad.css.map": "/portfolio-maryam/static/css/main.0760ddad.css.map",
+    "main.4eae570b.js.map": "/portfolio-maryam/static/js/main.4eae570b.js.map",
+    "453.afec77df.chunk.js.map": "/portfolio-maryam/static/js/453.afec77df.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0760ddad.css",
+    "static/js/main.4eae570b.js"
+  ]
+}
