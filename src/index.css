@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* global.css */
+
+/* Light Mode Styles */
+.light-mode {
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --button-background: #e0e0e0;
+    --button-border: #cccccc;
+    --item-background: #f9f9f9;
+    --cursor-color: #ff007a;
+  }
+  
+  /* Dark Mode Styles */
+  .dark-mode {
+    --background-color: #1F1F1F;
+    --text-color: #f1f1f1db;
+    --button-background: #333333;
+    --button-border: #666666;
+    --item-background: #1F1F1F;
+    --cursor-color: #a855f7;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  .dropdown-button {
+    background-color: var(--button-background);
+    border-color: var(--button-border);
+  }
+  
+  .dropdown-item {
+    background-color: var(--item-background);
+  }
+  
+  .custom-cursor {
+    background-color: var(--cursor-color);
+  }
+  /* Custom scrollbar for WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #2d2d2d; /* Track background color */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #6b6b6b; /* Scrollbar thumb color */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0; /* Thumb color on hover */
+  }
+  
