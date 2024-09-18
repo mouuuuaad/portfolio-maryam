@@ -1,6 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { FiChevronDown, FiX } from "react-icons/fi";
 import gsap from "gsap";
+import facebook from "../icons/facebookIcons.svg";
+import instagram from "../icons/instagramIcons.svg";
+import linkedin from "../icons/linkedinIcons.svg";
+import Xicno from "../icons/Xicons.svg";
+import dribbble from "../icons/dribbbleIcons.svg";
+import github from "../icons/githubIcons.svg";
 
 const PortfolioDropdown = () => {
   const [isDropdown, setIsDropdown] = useState(false);
@@ -22,6 +28,13 @@ const PortfolioDropdown = () => {
     setNum1(n1);
     setNum2(n2);
     setAuthAnswer(n1 + n2);
+  }, []);
+  const inputRef = useRef(null);
+  const [userInput2, setUserInput2] = useState("");
+
+  useEffect(() => {
+    // Focus the input when the component mounts
+    inputRef.current.focus();
   }, []);
 
   // Create the equation string for display
@@ -65,12 +78,12 @@ const PortfolioDropdown = () => {
   // Handle hover for advanced 3D effect
   const handleHover = (index) => {
     gsap.to(itemRefs.current[index], {
-      scale: 1.1,
+      scale: 1.08,
       rotateY: 15,
       rotateX: 10,
-      boxShadow: "0px 15px 30px rgba(0, 0, 0, 0.4)",
+      boxShadow: "0px 3px 5px #a855f7",
       zIndex: 10,
-      duration: 0.3,
+      duration: 0.2,
     });
   };
 
@@ -149,7 +162,7 @@ const PortfolioDropdown = () => {
       setTimeout(() => {
         setIsAuthenticated(true);
         document.getElementById("alertTrue").classList.add("hidden"); // Hide after showing
-      }, 3000); // Display for 2 seconds
+      }, 2000); // Display for 2 seconds
     } else {
       // Show error alert
       document.getElementById("alertFalse").classList.remove("hidden");
@@ -159,9 +172,9 @@ const PortfolioDropdown = () => {
       }, 2000); // Display for 2 seconds
     }
   };
-
+  const FullName = "Mariam Azddou";
   return (
-    <main className="relative flex flex-col my-11 gap-y-3 w-full">
+    <main className="flex flex-col my-11 gap-y-3 w-full">
       {/* Custom Cursor */}
       <div
         ref={cursorRef}
@@ -202,7 +215,8 @@ const PortfolioDropdown = () => {
               value={userInput}
               id="inputAuth"
               onChange={(e) => setUserInput(e.target.value)}
-              className=" w-full px-4 text-white py-4 outline-none bg-[#1F1F1F] border-2 border-[#333333] mb-4 rounded"
+              ref={inputRef}
+              className="w-full px-4 text-white py-4 outline-none bg-[#1F1F1F] border-2 border-[#333333] mb-4 rounded"
               required
             />
             <button
@@ -220,11 +234,11 @@ const PortfolioDropdown = () => {
             onClick={() => setIsDropdown(!isDropdown)}
             onMouseEnter={handleCursorHover}
             onMouseLeave={handleCursorOut}
-            className="text-[#f1f1f1db] gap-6 border-2 border-[#333333] px-6 rounded-md py-4 mx-auto mt-11 w-[85%] md:w-[70%] lg:w-[60%] hover:scale-105 transition-transform duration-300 ease-in-out"
+            className="text-[#f1f1f1db] gap-6 border-2 border-[#333333] px-6 rounded-md py-6 mx-auto mt-11 w-[85%] md:w-[70%] lg:w-[60%] hover:scale-105 transition-transform duration-300 ease-in-out"
           >
-            <span className="font-bold flex gap-2 justify-between items-center text-xl">
-              Mariam Azddou's Portfolio <FiChevronDown />
-            </span>
+            <div className="font-bold textShadow flex gap-2 justify-between items-center text-xl">
+              {FullName}'s Portfolio <FiChevronDown />
+            </div>
           </button>
 
           {/* Dropdown Items */}
@@ -232,7 +246,65 @@ const PortfolioDropdown = () => {
             ref={dropdownRef}
             className="overflow-hidden max-h-0 opacity-0 transform transition-all duration-500 ease-in-out"
           >
-            <div className="text-[#f1f1f1db] gap-6 border-2 border-[#333333] px-6 rounded-md pt-8 mx-auto w-[85%] md:w-[70%] lg:w-[60%]">
+            <div className="text-[#f1f1f1db] py-6 flex flex-col gap-4 border-2 border-[#333333] px-6 rounded-md mx-auto w-[85%] md:w-[70%] lg:w-[60%]">
+              <div className="">
+                <ul className="flex justify-around">
+                  <li>
+                    <a target="/" href="https://www.facebook.com/share/j23P1J8evMQS3o1K/?mibextid=LQQJ4d">
+                      <img
+                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md border-[#333333]"
+                        src={facebook}
+                        alt=""
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a target="/" href="https://www.instagram.com/maryam_azddou?igsh=MW9qZmdhNmZ2a3pjbg%3D%3D&utm_source=qr">
+                      <img
+                        className="border-2 py-3 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 px-4 rounded-md border-[#333333]"
+                        src={instagram}
+                        alt=""
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img
+                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md border-[#333333]"
+                        src={Xicno}
+                        alt=""
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img
+                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md border-[#333333]"
+                        src={dribbble}
+                        alt=""
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img
+                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md border-[#333333]"
+                        src={linkedin}
+                        alt=""
+                      />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img
+                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md border-[#333333]"
+                        src={github}
+                        alt=""
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
               {portfolioDetails.map((info, index) => (
                 <div
                   key={info.id}
@@ -240,7 +312,7 @@ const PortfolioDropdown = () => {
                   onMouseEnter={() => handleHover(index)}
                   onMouseLeave={() => handleHoverOut(index)}
                   onClick={() => handleCardClick(info.id)}
-                  className="flex flex-col w-full gap-4 bg-[#1F1F1F] px-3 rounded-md py-4 mb-3 cursor-pointer transform transition-transform duration-300"
+                  className="flex flex-col w-full bg-[#1F1F1F] px-4 rounded-md py-6 cursor-pointer transform transition-transform duration-300"
                   style={{ perspective: 1000 }}
                 >
                   <span className="text-lg font-bold">{info.title}</span>

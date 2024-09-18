@@ -1,7 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-/* global.css */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
 
 /* Light Mode Styles */
 .light-mode {
@@ -56,4 +58,6 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #a0a0a0; /* Thumb color on hover */
   }
-  
+.textShadow {
+  text-shadow: 0 0 10px #00000080;
+}
