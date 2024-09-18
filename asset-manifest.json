@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "/portfolio-maryam/static/css/main.0760ddad.css",
-    "main.js": "/portfolio-maryam/static/js/main.4eae570b.js",
+    "main.css": "/portfolio-maryam/static/css/main.d224cfee.css",
+    "main.js": "/portfolio-maryam/static/js/main.4c8ac422.js",
     "static/js/453.afec77df.chunk.js": "/portfolio-maryam/static/js/453.afec77df.chunk.js",
+    "static/media/dribbbleIcons.svg": "/portfolio-maryam/static/media/dribbbleIcons.e3bd56a535cc795cd052b51b34b93ec1.svg",
+    "static/media/githubIcons.svg": "/portfolio-maryam/static/media/githubIcons.c728be02e6e2a52c4774faa43ca1f7ee.svg",
     "index.html": "/portfolio-maryam/index.html",
-    "main.0760ddad.css.map": "/portfolio-maryam/static/css/main.0760ddad.css.map",
-    "main.4eae570b.js.map": "/portfolio-maryam/static/js/main.4eae570b.js.map",
+    "static/media/linkedinIcons.svg": "/portfolio-maryam/static/media/linkedinIcons.72b4aadd47b3159b13e5e58e0c7caa79.svg",
+    "static/media/instagramIcons.svg": "/portfolio-maryam/static/media/instagramIcons.1a53503fe0f800d6880b480b816fbd4b.svg",
+    "static/media/Xicons.svg": "/portfolio-maryam/static/media/Xicons.21657acf2ab7df8ca99a4eb122f33eb4.svg",
+    "static/media/facebookIcons.svg": "/portfolio-maryam/static/media/facebookIcons.580c40e9f20e008a480ff91bd6d63c59.svg",
+    "main.d224cfee.css.map": "/portfolio-maryam/static/css/main.d224cfee.css.map",
+    "main.4c8ac422.js.map": "/portfolio-maryam/static/js/main.4c8ac422.js.map",
     "453.afec77df.chunk.js.map": "/portfolio-maryam/static/js/453.afec77df.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0760ddad.css",
-    "static/js/main.4eae570b.js"
+    "static/css/main.d224cfee.css",
+    "static/js/main.4c8ac422.js"
   ]
 }
