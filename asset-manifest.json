@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio-maryam/static/css/main.ba1cb89d.css",
-    "main.js": "/portfolio-maryam/static/js/main.37a0fd35.js",
+    "main.js": "/portfolio-maryam/static/js/main.e60cfb6a.js",
     "static/js/453.afec77df.chunk.js": "/portfolio-maryam/static/js/453.afec77df.chunk.js",
     "static/media/slick.svg": "/portfolio-maryam/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/portfolio-maryam/static/media/slick.a4e97f5a2a64f0ab1323.eot",
@@ -15,11 +15,11 @@
     "static/media/Xicons.svg": "/portfolio-maryam/static/media/Xicons.21657acf2ab7df8ca99a4eb122f33eb4.svg",
     "static/media/facebookIcons.svg": "/portfolio-maryam/static/media/facebookIcons.c414e384be06e9b37b46f4628f2117b8.svg",
     "main.ba1cb89d.css.map": "/portfolio-maryam/static/css/main.ba1cb89d.css.map",
-    "main.37a0fd35.js.map": "/portfolio-maryam/static/js/main.37a0fd35.js.map",
+    "main.e60cfb6a.js.map": "/portfolio-maryam/static/js/main.e60cfb6a.js.map",
     "453.afec77df.chunk.js.map": "/portfolio-maryam/static/js/453.afec77df.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ba1cb89d.css",
-    "static/js/main.37a0fd35.js"
+    "static/js/main.e60cfb6a.js"
   ]
 }
