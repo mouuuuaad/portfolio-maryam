@@ -1,8 +1,12 @@
 {
   "files": {
-    "main.css": "/portfolio-maryam/static/css/main.d224cfee.css",
-    "main.js": "/portfolio-maryam/static/js/main.4c8ac422.js",
+    "main.css": "/portfolio-maryam/static/css/main.7ee70833.css",
+    "main.js": "/portfolio-maryam/static/js/main.5549b9fa.js",
     "static/js/453.afec77df.chunk.js": "/portfolio-maryam/static/js/453.afec77df.chunk.js",
+    "static/media/slick.svg": "/portfolio-maryam/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/portfolio-maryam/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/portfolio-maryam/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/portfolio-maryam/static/media/slick.295183786cd8a1389865.woff",
     "static/media/dribbbleIcons.svg": "/portfolio-maryam/static/media/dribbbleIcons.e3bd56a535cc795cd052b51b34b93ec1.svg",
     "static/media/githubIcons.svg": "/portfolio-maryam/static/media/githubIcons.c728be02e6e2a52c4774faa43ca1f7ee.svg",
     "index.html": "/portfolio-maryam/index.html",
@@ -10,12 +14,12 @@
     "static/media/instagramIcons.svg": "/portfolio-maryam/static/media/instagramIcons.1a53503fe0f800d6880b480b816fbd4b.svg",
     "static/media/Xicons.svg": "/portfolio-maryam/static/media/Xicons.21657acf2ab7df8ca99a4eb122f33eb4.svg",
     "static/media/facebookIcons.svg": "/portfolio-maryam/static/media/facebookIcons.580c40e9f20e008a480ff91bd6d63c59.svg",
-    "main.d224cfee.css.map": "/portfolio-maryam/static/css/main.d224cfee.css.map",
-    "main.4c8ac422.js.map": "/portfolio-maryam/static/js/main.4c8ac422.js.map",
+    "main.7ee70833.css.map": "/portfolio-maryam/static/css/main.7ee70833.css.map",
+    "main.5549b9fa.js.map": "/portfolio-maryam/static/js/main.5549b9fa.js.map",
     "453.afec77df.chunk.js.map": "/portfolio-maryam/static/js/453.afec77df.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d224cfee.css",
-    "static/js/main.4c8ac422.js"
+    "static/css/main.7ee70833.css",
+    "static/js/main.5549b9fa.js"
   ]
 }
