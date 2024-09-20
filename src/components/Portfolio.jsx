@@ -7,6 +7,9 @@ import linkedin from "../icons/linkedinIcons.svg";
 import Xicno from "../icons/Xicons.svg";
 import dribbble from "../icons/dribbbleIcons.svg";
 import github from "../icons/githubIcons.svg";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 const PortfolioDropdown = () => {
   const [isDropdown, setIsDropdown] = useState(false);
@@ -21,6 +24,14 @@ const PortfolioDropdown = () => {
   const cursorRef = useRef(null);
   const modalRef = useRef(null);
 
+  const sliderSettings = {
+    dots: true, // Enable dots for navigation
+    infinite: true, // Infinite scrolling
+    speed: 500, // Transition speed
+    slidesToShow: 1, // Show one image at a time
+    slidesToScroll: 1, // Scroll one image at a time
+    arrows: true, // Show navigation arrows
+  };
   // Generate a simple equation and set authAnswer
   useEffect(() => {
     const n1 = Math.floor(Math.random() * 100) + 2;
@@ -250,21 +261,29 @@ const PortfolioDropdown = () => {
               <div className="">
                 <ul className="flex justify-around">
                   <li>
-                    <a target="/" href="https://www.facebook.com/share/j23P1J8evMQS3o1K/?mibextid=LQQJ4d">
+                    <a
+                      target="/"
+                      href="https://www.facebook.com/share/j23P1J8evMQS3o1K/?mibextid=LQQJ4d"
+                    >
                       <img
                         className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md border-[#333333]"
                         src={facebook}
                         alt=""
                       />
+                      <span>Follow us on Facebook</span>
                     </a>
                   </li>
                   <li>
-                    <a target="/" href="https://www.instagram.com/maryam_azddou?igsh=MW9qZmdhNmZ2a3pjbg%3D%3D&utm_source=qr">
+                    <a
+                      target="/"
+                      href="https://www.instagram.com/maryam_azddou?igsh=MW9qZmdhNmZ2a3pjbg%3D%3D&utm_source=qr"
+                    >
                       <img
                         className="border-2 py-3 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 px-4 rounded-md border-[#333333]"
                         src={instagram}
                         alt=""
                       />
+                      <span>Follow us on Instagram</span>
                     </a>
                   </li>
                   <li>
@@ -274,6 +293,7 @@ const PortfolioDropdown = () => {
                         src={Xicno}
                         alt=""
                       />
+                      <span>Follow us on X</span>
                     </a>
                   </li>
                   <li>
@@ -283,6 +303,7 @@ const PortfolioDropdown = () => {
                         src={dribbble}
                         alt=""
                       />
+                      <span>Follow us on Dribbble</span>
                     </a>
                   </li>
                   <li>
@@ -292,6 +313,7 @@ const PortfolioDropdown = () => {
                         src={linkedin}
                         alt=""
                       />
+                      <span>Connect on LinkedIn</span>
                     </a>
                   </li>
                   <li>
@@ -301,6 +323,7 @@ const PortfolioDropdown = () => {
                         src={github}
                         alt=""
                       />
+                      <span>Check out our GitHub</span>
                     </a>
                   </li>
                 </ul>
@@ -338,17 +361,26 @@ const PortfolioDropdown = () => {
                 <h2 className="text-2xl font-bold mb-4">
                   {selectedCard.title}
                 </h2>
-                <img
-                  src={selectedCard.image}
-                  alt={selectedCard.title}
-                  className="w-full h-56 object-cover rounded-lg mb-4"
-                />
+
+                {/* Image Slider */}
+                <Slider className="mb-3" {...sliderSettings}>
+                  {selectedCard.images.map((image, index) => (
+                    <div key={index}>
+                      <img
+                        src={image}
+                        alt={selectedCard.title}
+                        className="w-full h-56 cursor-grab object-cover rounded-lg mb-4"
+                      />
+                    </div>
+                  ))}
+                </Slider>
+
                 <p className="mb-4">{selectedCard.moreDetails}</p>
                 <div className="flex flex-col">
                   <h3 className="text-xl font-semibold mb-2">Features:</h3>
-                  <ul className="list-disc pl-5">
+                  <ul className=" list-disc flex flex-col pl-5">
                     {selectedCard.features.map((feature, index) => (
-                      <li key={index}>{feature}</li>
+                      <li className="list-disc" key={index}>{feature}</li>
                     ))}
                   </ul>
                 </div>
@@ -377,8 +409,12 @@ const portfolioDetails = [
       "Modern UI Libraries",
       "Cross-Browser Compatibility",
     ],
-    image:
-      "https://learntocodewith.me/wp-content/uploads/2021/10/front-end-developer-1024x683.jpg", // Replace with actual image URL
+    images: [
+      "https://learntocodewith.me/wp-content/uploads/2021/10/front-end-developer-1024x683.jpg",
+      "https://t3.ftcdn.net/jpg/02/54/33/36/360_F_254333618_CGCoQkXnCv37gi6vfw8i1zD6PV1IS0pV.jpg",
+      "https://img.freepik.com/premium-photo/fullstack-development_1327465-13610.jpg?size=626&ext=jpg",
+      "https://cdn.pixabay.com/photo/2016/11/19/14/00/code-1839406_1280.jpg", // Added another image
+    ],
   },
   {
     id: 2,
@@ -394,8 +430,12 @@ const portfolioDetails = [
       "Visual Design",
       "Usability Testing",
     ],
-    image:
-      "https://images.prismic.io/dribbble/d4055bbc-0764-4598-a835-ff4f0a738127_case_study_final.webp?auto=compress,format&rect=0,0,800,600&w=1200&h=900%201200w,%20https://images.prismic.io/dribbble/d4055bbc-0764-4598-a835-ff4f0a738127_case_study_final.webp?auto=compress,format&rect=0,0,800,599&w=375&h=281%20375w,%20https://images.prismic.io/dribbble/d4055bbc-0764-4598-a835-ff4f0a738127_case_study_final.webp?auto=compress,format&rect=0,0,800,600&w=744&h=558%20744w", // Replace with actual image URL
+    images: [
+      "https://img.freepik.com/premium-photo/ui-ux-design_1197721-98477.jpg?size=626&ext=jpg",
+      "https://media.istockphoto.com/id/1268172253/photo/website-designer-creative-planning-phone-app-development-template-layout-framework-wireframe.webp?a=1&b=1&s=612x612&w=0&k=20&c=2riNNs_qnfRcC_uxiTOKjS2wbAdZoe4i6Q50xH8Cd08=",
+      "https://cdn.sanity.io/images/599r6htc/regionalized/80890916035c843b5e8882682b7e2baef4bdd8b2-720x361.png?w=720&h=361&q=75&fit=max&auto=format",
+      "https://cdn.prod.website-files.com/64f9d86c3da1bd10b13c772c/66d0f33279376bee3c9c1e02_Top-Designers_Data2_opt.webp",
+    ],
   },
   {
     id: 3,
@@ -410,8 +450,12 @@ const portfolioDetails = [
       "Interactive Elements",
       "Design System Integration",
     ],
-    image:
-      "https://media.gettyimages.com/id/1219854221/photo/web-design-development-and-coding-concept.jpg?s=612x612&w=0&k=20&c=FqSjdRh6subL_UMSpuXxeRpvkt1krxUiyCQZ1ws7rOk=", // Replace with actual image URL
+    images: [
+      "https://img.freepik.com/premium-photo/black-white-image-desk-with-computer-screen-displaying-website_14117-833173.jpg?size=626&ext=jpg",
+      "https://t4.ftcdn.net/jpg/03/54/17/85/360_F_354178547_hy7OujN7u4m2SqkZy1T3t41I6oXvnkxL.jpg",
+      "https://media.istockphoto.com/id/1061328844/photo/woman-designing-gui.jpg?s=612x612&w=0&k=20&c=fnOyIgja_FuLWSddG8noNkQIyI__jU80q_XEkLNHxOQ=",
+      "https://img.freepik.com/free-photo/web-design-technology-browsing-programming-concept_53876-163260.jpg?size=626&ext=jpg",
+    ],
   },
   {
     id: 4,
@@ -426,8 +470,12 @@ const portfolioDetails = [
       "Illustrations",
       "Photo Editing",
     ],
-    image:
-      "https://img.freepik.com/premium-photo/ideal-graphic-designers-seeking-unique_1254992-114797.jpg?size=626&ext=jpg", // Replace with actual image URL
+    images: [
+      "https://img.freepik.com/premium-photo/graphic-design-software-interface-with-39design39-typography-creative-workspace-setting_633842-14390.jpg?size=626&ext=jpg",
+      "https://img.freepik.com/premium-photo/ideal-graphic-designers-seeking-unique_1254992-114797.jpg?size=626&ext=jpg",
+      "https://img.freepik.com/premium-photo/poster-with-graphic-design-it-that-says-graph-it_1308157-329828.jpg?size=626&ext=jpg",
+      "https://img.freepik.com/premium-photo/professional-designer-creating-branding-materials-marketing_1096183-3787.jpg?size=626&ext=jpg",
+    ],
   },
   {
     id: 5,
@@ -435,7 +483,7 @@ const portfolioDetails = [
     description:
       "Building complete web applications from front-end to back-end.",
     moreDetails:
-      "Proficient in both client-side and server-side technologies, including php and Laravel.",
+      "Proficient in both client-side and server-side technologies, including PHP and Laravel.",
     features: [
       "Server-Side Development",
       "Database Management",
@@ -443,7 +491,11 @@ const portfolioDetails = [
       "Client-Side Interactivity",
       "Scalable Architecture",
     ],
-    image:
-      "https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_640.jpg", // Replace with actual image URL
+    images: [
+      "https://wallpapercave.com/wp/wp10167050.jpg",
+      "https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720_640.jpg",
+      "https://wallpapercave.com/wp/wp8903914.jpg",
+      "https://wallpapercave.com/wp/wp10167068.jpg",
+    ],
   },
 ];

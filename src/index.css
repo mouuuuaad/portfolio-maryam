@@ -61,3 +61,60 @@
 .textShadow {
   text-shadow: 0 0 10px #00000080;
 }
+ul li {
+  position: relative;
+  display: inline-block;
+}
+
+ul li span {
+  visibility: hidden;
+  background: #141414; /* Modern gradient */
+  color: #F6F6F6;
+  font-size: 14px;
+  padding: 12px 12px;
+  border-radius: 8px;
+  position: absolute;
+  top: 125%; /* Position below the icon */
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px); /* Starts closer to the icon */
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  border: 2px solid #333333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 9999; /* Add a high z-index to ensure it's on top */
+}
+
+.card-container {
+  overflow: visible; /* Ensures the tooltip is visible */
+}
+
+ul li:hover span {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0); /* Smooth drop down on hover */
+}
+
+ul li span::after {
+  content: '';
+  position: absolute;
+  bottom: 100%; /* Triangle appears above the tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent transparent #333333 transparent; /* Triangle pointer */
+}
+
+ul li img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+ul li:hover img {
+  transform: scale(1.1); /* Slight zoom on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Modern hover effect */
+}
+.listStyle {
+  list-style:  armenian;
+}
