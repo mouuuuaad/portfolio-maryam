@@ -184,7 +184,7 @@ const PortfolioDropdown = () => {
       }, 2000); // Display for 2 seconds
     }
   };
-  const FullName = "Mariam Azddou";
+  const FullName = "Maryam Azddou";
   return (
     <Flowbite>
 <main className="flex flex-col my-11 gap-y-3 w-full">
