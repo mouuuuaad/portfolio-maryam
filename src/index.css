@@ -2,29 +2,9 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+@import 'flowbite';
 
 
-
-/* Light Mode Styles */
-.light-mode {
-    --background-color: #ffffff;
-    --text-color: #333333;
-    --button-background: #e0e0e0;
-    --button-border: #cccccc;
-    --item-background: #f9f9f9;
-    --cursor-color: #ff007a;
-  }
-  
-  /* Dark Mode Styles */
-  .dark-mode {
-    --background-color: #1F1F1F;
-    --text-color: #f1f1f1db;
-    --button-background: #333333;
-    --button-border: #666666;
-    --item-background: #1F1F1F;
-    --cursor-color: #a855f7;
-  }
-  
   body {
     background-color: var(--background-color);
     color: var(--text-color);

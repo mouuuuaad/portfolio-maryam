@@ -10,6 +10,7 @@ import github from "../icons/githubIcons.svg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { DarkThemeToggle, Flowbite } from "flowbite-react";
 
 const PortfolioDropdown = () => {
   const [isDropdown, setIsDropdown] = useState(false);
@@ -185,7 +186,8 @@ const PortfolioDropdown = () => {
   };
   const FullName = "Mariam Azddou";
   return (
-    <main className="flex flex-col my-11 gap-y-3 w-full">
+    <Flowbite>
+<main className="flex flex-col my-11 gap-y-3 w-full">
       {/* Custom Cursor */}
       <div
         ref={cursorRef}
@@ -213,26 +215,26 @@ const PortfolioDropdown = () => {
             have successfully accessed the portfolio.
           </div>
 
-          <p className="mb-4 text-[#F3F3F3] text-lg">
+          <p className="mb-4 dark:text-[#F3F3F3] text-black text-lg">
             Solve the equation to access to Portfolio :
           </p>
           <form
             onSubmit={handleSubmit}
             className="flex flex-col w-[60%] lg:w-[25%] mx-auto items-center"
           >
-            <p className=" text-white text-xl mb-3 font-bold">{equation}</p>
+            <p className=" dark:text-white text-xl mb-3 font-bold">{equation}</p>
             <input
               type="number"
               value={userInput}
               id="inputAuth"
               onChange={(e) => setUserInput(e.target.value)}
               ref={inputRef}
-              className="w-full px-4 text-white py-4 outline-none bg-[#1F1F1F] border-2 border-[#333333] mb-4 rounded"
+              className="w-full px-4 dark:text-white text-black py-4 outline-none dark:bg-[#1F1F1F] bg-white border-2 dark:border-[#333333] border-[#99999]  mb-4 rounded"
               required
             />
             <button
               type="submit"
-              className="bg-[#1F1F1F] text-[#999999] border-2 border-[#333333] py-4 w-full font-medium px-6 rounded"
+              className="bg-[#1F1F1F] focus:border-3 focus:dark:border-[#333333] border-[#99999]  text-[#999999] border-2 dark:border-[#333333] border-[#99999]  py-4 w-full font-medium px-6 rounded"
             >
               Submit
             </button>
@@ -245,9 +247,9 @@ const PortfolioDropdown = () => {
             onClick={() => setIsDropdown(!isDropdown)}
             onMouseEnter={handleCursorHover}
             onMouseLeave={handleCursorOut}
-            className="text-[#f1f1f1db] gap-6 border-2 border-[#333333] px-6 rounded-md py-6 mx-auto mt-11 w-[85%] md:w-[70%] lg:w-[60%] hover:scale-105 transition-transform duration-300 ease-in-out"
+            className="text-[#f1f1f1db] gap-6 border-2 dark:border-[#333333] border-[#99999] px-6 rounded-md py-6 mx-auto mt-11 w-[85%] md:w-[70%] lg:w-[60%] hover:scale-105 transition-transform duration-300 ease-in-out"
           >
-            <div className="font-bold textShadow flex gap-2 justify-between items-center text-xl">
+            <div className="font-bold dark:text-white text-[#333333]  dark:textShadow flex gap-2 justify-between items-center text-xl">
               {FullName}'s Portfolio <FiChevronDown />
             </div>
           </button>
@@ -257,7 +259,7 @@ const PortfolioDropdown = () => {
             ref={dropdownRef}
             className="overflow-hidden max-h-0 opacity-0 transform transition-all duration-500 ease-in-out"
           >
-            <div className="text-[#f1f1f1db] py-6 flex flex-col gap-4 border-2 border-[#333333] px-6 rounded-md mx-auto w-[85%] md:w-[70%] lg:w-[60%]">
+            <div className="text-[#f1f1f1db] py-6 flex flex-col gap-4 border-2 dark:border-[#333333] border-[#99999]  px-6 rounded-md mx-auto w-[85%] md:w-[70%] lg:w-[60%]">
               <div className="">
                 <ul className="flex justify-around">
                   <li>
@@ -266,7 +268,7 @@ const PortfolioDropdown = () => {
                       href="https://www.facebook.com/share/j23P1J8evMQS3o1K/?mibextid=LQQJ4d"
                     >
                       <img
-                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md border-[#333333]"
+                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
                         src={facebook}
                         alt=""
                       />
@@ -279,7 +281,7 @@ const PortfolioDropdown = () => {
                       href="https://www.instagram.com/maryam_azddou?igsh=MW9qZmdhNmZ2a3pjbg%3D%3D&utm_source=qr"
                     >
                       <img
-                        className="border-2 py-3 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 px-4 rounded-md border-[#333333]"
+                        className="border-2 py-3 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 px-4 rounded-md dark:border-[#333333] border-[#99999] "
                         src={instagram}
                         alt=""
                       />
@@ -289,7 +291,7 @@ const PortfolioDropdown = () => {
                   <li>
                     <a href="#">
                       <img
-                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md border-[#333333]"
+                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
                         src={Xicno}
                         alt=""
                       />
@@ -299,7 +301,7 @@ const PortfolioDropdown = () => {
                   <li>
                     <a href="#">
                       <img
-                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md border-[#333333]"
+                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
                         src={dribbble}
                         alt=""
                       />
@@ -309,7 +311,7 @@ const PortfolioDropdown = () => {
                   <li>
                     <a href="#">
                       <img
-                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md border-[#333333]"
+                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
                         src={linkedin}
                         alt=""
                       />
@@ -319,7 +321,7 @@ const PortfolioDropdown = () => {
                   <li>
                     <a href="#">
                       <img
-                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md border-[#333333]"
+                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
                         src={github}
                         alt=""
                       />
@@ -335,11 +337,11 @@ const PortfolioDropdown = () => {
                   onMouseEnter={() => handleHover(index)}
                   onMouseLeave={() => handleHoverOut(index)}
                   onClick={() => handleCardClick(info.id)}
-                  className="flex flex-col w-full bg-[#1F1F1F] px-4 rounded-md py-6 cursor-pointer transform transition-transform duration-300"
+                  className="flex flex-col w-full dark:bg-[#1F1F1F] border-2 border-[#999999d6] dark:border-none px-4 rounded-md py-6 cursor-pointer transform transition-transform duration-300"
                   style={{ perspective: 1000 }}
                 >
-                  <span className="text-lg font-bold">{info.title}</span>
-                  <span>{info.description}</span>
+                  <span className="text-lg dark:text-slate-200 text-[#333333] font-bold">{info.title}</span>
+                  <span className="dark:text-slate-200 text-[#333333] ">{info.description}</span>
                 </div>
               ))}
             </div>
@@ -349,16 +351,16 @@ const PortfolioDropdown = () => {
           {selectedCard && (
             <div
               ref={modalRef}
-              className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 z-50 opacity-0 scale-0"
+              className="fixed inset-0 flex items-center justify-center bg-transparent backdrop-blur-sm  z-50 opacity-0 scale-0"
             >
-              <div className="bg-white p-6 rounded-lg w-[80%] max-w-lg relative">
+              <div className="dark:bg-[#141414] bg-white border-2 dark:border-[#333333] p-6 rounded-lg w-[80%] max-w-lg relative">
                 <button
                   onClick={handleCloseModal}
                   className="absolute top-4 right-4 text-2xl text-gray-500"
                 >
                   <FiX />
                 </button>
-                <h2 className="text-2xl font-bold mb-4">
+                <h2 className="text-2xl dark:text-[#F2F2F2] font-bold mb-4">
                   {selectedCard.title}
                 </h2>
 
@@ -375,12 +377,12 @@ const PortfolioDropdown = () => {
                   ))}
                 </Slider>
 
-                <p className="mb-4 mt-6">{selectedCard.moreDetails}</p>
+                <p className="mb-4 dark:text-[#F2F2F2] mt-6">{selectedCard.moreDetails}</p>
                 <div className="flex flex-col">
-                  <h3 className="text-xl font-semibold mb-2">Features:</h3>
+                  <h3 className="text-xl dark:text-[#F2F2F2] font-semibold mb-2">Features:</h3>
                   <ul className=" list-disc flex flex-col pl-5">
                     {selectedCard.features.map((feature, index) => (
-                      <li className="list-disc" key={index}>
+                      <li className="list-disc dark:text-[#F2F2F2]"  key={index}>
                         {feature}
                       </li>
                     ))}
@@ -392,6 +394,9 @@ const PortfolioDropdown = () => {
         </>
       )}
     </main>
+    <DarkThemeToggle className="fixed border-2 right-10 top-10 w-[50px] items-center justify-center flex hover:bg-none dark:border-[#333333] border-[#99999] " />
+    </Flowbite>
+    
   );
 };
 
