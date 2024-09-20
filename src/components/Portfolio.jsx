@@ -369,18 +369,20 @@ const PortfolioDropdown = () => {
                       <img
                         src={image}
                         alt={selectedCard.title}
-                        className="w-full h-56 cursor-grab object-cover rounded-lg mb-4"
+                        className="w-full h-56 cursor-grab object-cover rounded-lg "
                       />
                     </div>
                   ))}
                 </Slider>
 
-                <p className="mb-4">{selectedCard.moreDetails}</p>
+                <p className="mb-4 mt-6">{selectedCard.moreDetails}</p>
                 <div className="flex flex-col">
                   <h3 className="text-xl font-semibold mb-2">Features:</h3>
                   <ul className=" list-disc flex flex-col pl-5">
                     {selectedCard.features.map((feature, index) => (
-                      <li className="list-disc" key={index}>{feature}</li>
+                      <li className="list-disc" key={index}>
+                        {feature}
+                      </li>
                     ))}
                   </ul>
                 </div>
