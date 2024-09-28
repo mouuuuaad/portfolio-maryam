@@ -10,8 +10,8 @@ import github from "../icons/githubIcons.svg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { DarkThemeToggle, Flowbite } from "flowbite-react";
-
+import { Link } from "react-router-dom";
+// eslint-disable-next-line
 const PortfolioDropdown = () => {
   const [isDropdown, setIsDropdown] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
@@ -35,25 +35,22 @@ const PortfolioDropdown = () => {
   };
   // Generate a simple equation and set authAnswer
   useEffect(() => {
-    const n1 = Math.floor(Math.random() * 100) + 2;
+    const n1 = Math.floor(Math.random() * 20) + 2;
     const n2 = Math.floor(Math.random() * 10) + 1;
     setNum1(n1);
     setNum2(n2);
     setAuthAnswer(n1 + n2);
   }, []);
   const inputRef = useRef(null);
+  // eslint-disable-next-line no-unused-vars
   const [userInput2, setUserInput2] = useState("");
 
   useEffect(() => {
-    // Focus the input when the component mounts
     inputRef.current.focus();
   }, []);
 
-  // Create the equation string for display
-  const equation =
-    num1 !== null && num2 !== null ? `${num1} + ${num2} = ?` : "";
+  const equation = num1 !== null && num2 !== null ? `${num1} + ${num2}` : "";
 
-  // Dropdown animation
   useEffect(() => {
     if (isDropdown) {
       gsap.to(dropdownRef.current, {
@@ -93,7 +90,7 @@ const PortfolioDropdown = () => {
       scale: 1.08,
       rotateY: 15,
       rotateX: 10,
-      boxShadow: "0px 3px 5px #a855f7",
+      boxShadow: "0px 3px 5px #D0FC35",
       zIndex: 10,
       duration: 0.2,
     });
@@ -153,7 +150,7 @@ const PortfolioDropdown = () => {
   const handleCursorHover = () => {
     gsap.to(cursorRef.current, {
       scale: 1.5,
-      backgroundColor: "#ff007a",
+      backgroundColor: "#d1fc3556",
       duration: 0.3,
     });
   };
@@ -161,7 +158,7 @@ const PortfolioDropdown = () => {
   const handleCursorOut = () => {
     gsap.to(cursorRef.current, {
       scale: 1,
-      backgroundColor: "#a855f7",
+      backgroundColor: "#D0FC35",
       duration: 0.3,
     });
   };
@@ -175,6 +172,8 @@ const PortfolioDropdown = () => {
         setIsAuthenticated(true);
         document.getElementById("alertTrue").classList.add("hidden"); // Hide after showing
       }, 2000); // Display for 2 seconds
+    } else if (document.getElementById("inputAuth").value === "") {
+      document.getElementById("alertTrue").classList.add("hidden"); // Hide after showing
     } else {
       // Show error alert
       document.getElementById("alertFalse").classList.remove("hidden");
@@ -186,12 +185,11 @@ const PortfolioDropdown = () => {
   };
   const FullName = "Maryam Azddou";
   return (
-    <Flowbite>
-<main className="flex flex-col my-11 gap-y-3 w-full">
+    <main className="flex flex-col my-11 gap-y-3 w-full">
       {/* Custom Cursor */}
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-8 h-8 bg-purple-500 rounded-full pointer-events-none z-50"
+        className="fixed top-0 left-0 w-8 h-8 dark:bg-[#d1fc35] bg-[#d1fc35] rounded-full pointer-events-none z-50"
         style={{ mixBlendMode: "difference" }}
       ></div>
 
@@ -207,6 +205,14 @@ const PortfolioDropdown = () => {
             answer you provided is incorrect. Please try again.
           </div>
           <div
+            id="VerfyQueInputVal"
+            className="p-4 w-[60%] lg:w-[25%] mb-3 hidden border-2 border-red-500 mx-auto bg-red-500/5 text-sm text-red-500 rounded-lg"
+            role="alert"
+          >
+            <span className="font-medium">Authentication Error!</span> Please
+            fill in the input field.
+          </div>
+          <div
             id="alertTrue"
             className="p-4 w-[60%] lg:w-[25%] mb-3 hidden border-2 border-green-500 mx-auto bg-green-500/5 text-sm text-green-500 rounded-lg"
             role="alert"
@@ -216,25 +222,62 @@ const PortfolioDropdown = () => {
           </div>
 
           <p className="mb-4 dark:text-[#F3F3F3] text-black text-lg">
-            Solve the equation to access to Portfolio :
+            Solve the equation to access to{" "}
+            <span className="dark:text-[#D0FC35] underline">Portfolio</span> :
           </p>
           <form
             onSubmit={handleSubmit}
             className="flex flex-col w-[60%] lg:w-[25%] mx-auto items-center"
           >
-            <p className=" dark:text-white text-xl mb-3 font-bold">{equation}</p>
+            <p className="dark:text-white gap-1 flex items-center text-xl mb-3 font-bold">
+              {equation}{" "}
+              <span className="flex items-center gap-1">
+                =
+                <p className="bg-[#D0FC35] text-[#000] px-4 text-xl py-1 rounded">
+                  {userInput}
+                </p>
+              </span>
+            </p>
+
+            <label htmlFor="inputAuth" className="sr-only text-[#333333]">
+              Answer
+            </label>
             <input
               type="number"
               value={userInput}
               id="inputAuth"
-              onChange={(e) => setUserInput(e.target.value)}
+              onChange={(e) => {
+                const inputValue = e.target.value;
+                if (inputValue.length <= 3) {
+                  setUserInput(inputValue); // Allow only two digits
+                }
+              }}
               ref={inputRef}
-              className="w-full px-4 dark:text-white text-black py-4 outline-none dark:bg-[#1F1F1F] bg-white border-2 dark:border-[#333333] border-[#99999]  mb-4 rounded"
-              required
+              className="w-full px-4 dark:text-white text-black py-4 focus:outline-none focus:ring-1 focus:ring-[#333] dark:bg-[#1F1F1F] bg-white focus:border-none border-2 dark:border-[#333333] border-[#999999] mb-4 rounded"
+              aria-required="true"
+              placeholder="Your answer"
             />
+
             <button
               type="submit"
-              className="bg-[#1F1F1F] focus:border-3 focus:dark:border-[#333333] border-[#99999]  text-[#999999] border-2 dark:border-[#333333] border-[#99999]  py-4 w-full font-medium px-6 rounded"
+              id="sub"
+              onClick={() => {
+                if (document.getElementById("inputAuth").value === "") {
+                  document
+                    .getElementById("VerfyQueInputVal")
+                    .classList.remove("hidden");
+                  setTimeout(() => {
+                    document
+                      .getElementById("VerfyQueInputVal")
+                      .classList.add("hidden");
+                    document.getElementById("inputAuth").placeholder =
+                      "Please fill in the input field!";
+                  }, 3000);
+                }
+              }}
+              onMouseEnter={handleCursorHover}
+              onMouseLeave={handleCursorOut}
+              className="bg-[#1F1F1F] text-[#d1fc35] border-2 dark:border-[#333333] focus:border-[#333] border-[#999999] py-4 w-full font-medium px-6 rounded transition-colors duration-300 ease-in-out hover:bg-[#333333] hover:text-[#d1fc35]/80"
             >
               Submit
             </button>
@@ -249,8 +292,13 @@ const PortfolioDropdown = () => {
             onMouseLeave={handleCursorOut}
             className="text-[#f1f1f1db] gap-6 border-2 dark:border-[#333333] border-[#99999] px-6 rounded-md py-6 mx-auto mt-11 w-[85%] md:w-[70%] lg:w-[60%] hover:scale-105 transition-transform duration-300 ease-in-out"
           >
-            <div className="font-bold dark:text-white text-[#333333]  dark:textShadow flex gap-2 justify-between items-center text-xl">
-              {FullName}'s Portfolio <FiChevronDown />
+            <div className="font-bold dark:text-white text-[#333333]  dark:textShadow flex justify-between items-center text-xl">
+              <span className="flex gap-1">
+                {FullName}'s <p className="text-[#D0FC35]">Portfolio</p>
+              </span>{" "}
+              <span>
+                <FiChevronDown className="text-[#D0FC35]" />
+              </span>
             </div>
           </button>
 
@@ -268,7 +316,7 @@ const PortfolioDropdown = () => {
                       href="https://www.facebook.com/share/j23P1J8evMQS3o1K/?mibextid=LQQJ4d"
                     >
                       <img
-                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
+                        className="border-2 hover:shadow-[3px_3px_#D0FC35] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
                         src={facebook}
                         alt=""
                       />
@@ -281,7 +329,7 @@ const PortfolioDropdown = () => {
                       href="https://www.instagram.com/maryam_azddou?igsh=MW9qZmdhNmZ2a3pjbg%3D%3D&utm_source=qr"
                     >
                       <img
-                        className="border-2 py-3 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 px-4 rounded-md dark:border-[#333333] border-[#99999] "
+                        className="border-2 py-3 hover:shadow-[3px_3px_#D0FC35] transition-all duration-300 px-4 rounded-md dark:border-[#333333] border-[#99999] "
                         src={instagram}
                         alt=""
                       />
@@ -291,7 +339,7 @@ const PortfolioDropdown = () => {
                   <li>
                     <a href="#">
                       <img
-                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
+                        className="border-2 hover:shadow-[3px_3px_#D0FC35] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
                         src={Xicno}
                         alt=""
                       />
@@ -301,7 +349,7 @@ const PortfolioDropdown = () => {
                   <li>
                     <a href="#">
                       <img
-                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
+                        className="border-2 hover:shadow-[3px_3px_#D0FC35] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
                         src={dribbble}
                         alt=""
                       />
@@ -311,7 +359,7 @@ const PortfolioDropdown = () => {
                   <li>
                     <a href="#">
                       <img
-                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
+                        className="border-2 hover:shadow-[3px_3px_#D0FC35] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
                         src={linkedin}
                         alt=""
                       />
@@ -321,7 +369,7 @@ const PortfolioDropdown = () => {
                   <li>
                     <a href="#">
                       <img
-                        className="border-2 hover:shadow-[3px_3px_#a855f7] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
+                        className="border-2 hover:shadow-[3px_3px_#D0FC35] transition-all duration-300 py-3 px-4 rounded-md dark:border-[#333333] border-[#99999] "
                         src={github}
                         alt=""
                       />
@@ -337,11 +385,15 @@ const PortfolioDropdown = () => {
                   onMouseEnter={() => handleHover(index)}
                   onMouseLeave={() => handleHoverOut(index)}
                   onClick={() => handleCardClick(info.id)}
-                  className="flex flex-col w-full dark:bg-[#1F1F1F] border-2 border-[#999999d6] dark:border-none px-4 rounded-md py-6 cursor-pointer transform transition-transform duration-300"
+                  className="flex flex-col w-full dark:bg-[#1F1F1F] border-2 border-[#99999900] dark:hover:border-[#d1fc353f] px-4 rounded-md py-6 cursor-pointer transform transition-transform duration-300"
                   style={{ perspective: 1000 }}
                 >
-                  <span className="text-lg dark:text-slate-200 text-[#333333] font-bold">{info.title}</span>
-                  <span className="dark:text-slate-200 text-[#333333] ">{info.description}</span>
+                  <span className="text-lg dark:text-[#ffffffe0] text-[#333333] font-bold">
+                    {info.title}
+                  </span>
+                  <span className="dark:text-[#ffffff6e] text-[#333333] ">
+                    {info.description}
+                  </span>
                 </div>
               ))}
             </div>
@@ -377,16 +429,30 @@ const PortfolioDropdown = () => {
                   ))}
                 </Slider>
 
-                <p className="mb-4 dark:text-[#F2F2F2] mt-6">{selectedCard.moreDetails}</p>
+                <p className="mb-4 dark:text-[#F2F2F2] mt-6">
+                  {selectedCard.moreDetails}
+                </p>
                 <div className="flex flex-col">
-                  <h3 className="text-xl dark:text-[#F2F2F2] font-semibold mb-2">Features:</h3>
-                  <ul className=" list-disc flex flex-col pl-5">
+                  <h3 className="text-xl dark:text-[#F2F2F2] font-semibold mb-2">
+                    Features:
+                  </h3>
+                  <ul className="list-disc flex flex-col pl-5">
                     {selectedCard.features.map((feature, index) => (
-                      <li className="list-disc dark:text-[#F2F2F2]"  key={index}>
+                      <li key={index} className="list-disc dark:text-[#F2F2F2]">
                         {feature}
                       </li>
                     ))}
                   </ul>
+                </div>
+
+                {/* More Info Link */}
+                <div className="mt-4">
+                  <Link
+                    to={selectedCard.link}
+                    className="text-blue-500 hover:underline"
+                  >
+                    More Info
+                  </Link>
                 </div>
               </div>
             </div>
@@ -394,9 +460,6 @@ const PortfolioDropdown = () => {
         </>
       )}
     </main>
-    <DarkThemeToggle className="fixed border-2 right-10 top-10 w-[50px] items-center justify-center flex hover:bg-none dark:border-[#333333] border-[#99999] " />
-    </Flowbite>
-    
   );
 };
 
@@ -405,6 +468,7 @@ const portfolioDetails = [
   {
     id: 1,
     title: "Front-End Developer",
+    link: "/frontend",
     description:
       "Specializing in React, JavaScript, and modern web technologies.",
     moreDetails:
@@ -426,6 +490,7 @@ const portfolioDetails = [
   {
     id: 2,
     title: "UI/UX Designer",
+    link: "/uiuxdesign",
     description:
       "Crafting user-centric interfaces with a focus on accessibility and aesthetics.",
     moreDetails:
@@ -447,6 +512,7 @@ const portfolioDetails = [
   {
     id: 3,
     title: "Web Designer",
+    link: "/webdesign",
     description: "Creating visually appealing and user-friendly web designs.",
     moreDetails:
       "Skilled in HTML, CSS, and visual design principles to craft stunning web layouts.",
@@ -467,6 +533,7 @@ const portfolioDetails = [
   {
     id: 4,
     title: "Graphic Designer",
+    link: "/graphicdesign",
     description: "Designing eye-catching graphics and branding materials.",
     moreDetails:
       "Experienced in Adobe Illustrator, Photoshop, and creating visual assets for various media.",
@@ -487,6 +554,7 @@ const portfolioDetails = [
   {
     id: 5,
     title: "Full-Stack Developer",
+    link: "/fullstack",
     description:
       "Building complete web applications from front-end to back-end.",
     moreDetails:

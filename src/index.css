@@ -5,11 +5,6 @@
 @import 'flowbite';
 
 
-  body {
-    background-color: var(--background-color);
-    color: var(--text-color);
-  }
-  
   .dropdown-button {
     background-color: var(--button-background);
     border-color: var(--button-border);
