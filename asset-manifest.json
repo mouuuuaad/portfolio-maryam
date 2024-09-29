@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio-maryam/static/css/main.0a7dde8c.css",
-    "main.js": "/portfolio-maryam/static/js/main.feb883f8.js",
+    "main.css": "/portfolio-maryam/static/css/main.eac80430.css",
+    "main.js": "/portfolio-maryam/static/js/main.4f268fd7.js",
     "static/js/488.142cafeb.chunk.js": "/portfolio-maryam/static/js/488.142cafeb.chunk.js",
     "static/media/slick.svg": "/portfolio-maryam/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/portfolio-maryam/static/media/slick.a4e97f5a2a64f0ab1323.eot",
@@ -14,12 +14,12 @@
     "static/media/instagramIcons.svg": "/portfolio-maryam/static/media/instagramIcons.1a53503fe0f800d6880b480b816fbd4b.svg",
     "static/media/Xicons.svg": "/portfolio-maryam/static/media/Xicons.21657acf2ab7df8ca99a4eb122f33eb4.svg",
     "static/media/facebookIcons.svg": "/portfolio-maryam/static/media/facebookIcons.c414e384be06e9b37b46f4628f2117b8.svg",
-    "main.0a7dde8c.css.map": "/portfolio-maryam/static/css/main.0a7dde8c.css.map",
-    "main.feb883f8.js.map": "/portfolio-maryam/static/js/main.feb883f8.js.map",
+    "main.eac80430.css.map": "/portfolio-maryam/static/css/main.eac80430.css.map",
+    "main.4f268fd7.js.map": "/portfolio-maryam/static/js/main.4f268fd7.js.map",
     "488.142cafeb.chunk.js.map": "/portfolio-maryam/static/js/488.142cafeb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0a7dde8c.css",
-    "static/js/main.feb883f8.js"
+    "static/css/main.eac80430.css",
+    "static/js/main.4f268fd7.js"
   ]
 }
